@@ -12,6 +12,7 @@ import CardBanner from './cardbanner/Cardbanner';
 import Categories from './categories/Categories';
 import Cardbanner2 from './cardbanner2/Cardbanner2';
 import Product from './product/Product';
+import Sells from './sells/Sells';
 
 
 const Home = () => {
@@ -87,6 +88,7 @@ const Home = () => {
 <Categories />
 <Cardbanner2 />
 <Product />
+<Sells/>
 
 
 </>

@@ -6,7 +6,6 @@ const products = [
   {id: 3, title: "Cadbury 5 Star Chocolate", category: "Bakery & Biscuits", rating: 5, reviews: 469, price: 32, oldPrice: 35,image: 'product-img-3.jpg'},
   {id: 4, title: "Onion Flavour Potato", category: "Snack & Munchies", rating: 3.5, reviews: 456, price: 3, oldPrice: 5, image: 'product-img-4.jpg', badge: 'Hot'},
   {id: 5, title: "Salted Instant Popcorn", category: "Instant Food", rating: 4.5, reviews: 39, price: 13, oldPrice: 18, image: 'product-img-5.jpg'},
-
   {id: 6, title: "Haldiram's Sev Bhujia", category: "Snack & Munchies", rating: 4.5, reviews: 149, price: 18, oldPrice: 24, image: 'product-img-6.jpg', badge: 'Sale'},
   {id: 7, title: "NutriChoice Digestive", category: "Bakery & Biscuits", rating: 4.5, reviews: 25, price: 24, image: 'product-img-7.jpg', badge: '14%'},
   {id: 8, title: "Cadbury 5 Star Chocolate", category: "Bakery & Biscuits", rating: 5, reviews: 469, price: 32, oldPrice: 35,image: 'product-img-8.jpg'},

@@ -24,8 +24,8 @@ export default function Categories() {
     <div className='categories-text'>Shop Popular Categories</div>
 
     <div className="categories-container">
-      {categories.map((item, index2) =>(
-    <div key={index2} className='categories-content'>
+      {categories.map((item, index) =>(
+    <div key={index} className='categories-content'>
       <img src={item.img} alt={item.alt} />
       <div className='categories-name'>{item.name}</div>
       </div>

@@ -10,8 +10,8 @@ export default function Cardbanner2() {
   return (
     <div className='grocery-banner'>
         <div className='grocery-img'>
-        {Cardbanner2.map((Cardbanner2, index1) =>(
-            <div key={index1} className='grocery-item'>
+        {Cardbanner2.map((Cardbanner2, index) =>(
+            <div key={index} className='grocery-item'>
                 <img src={Cardbanner2.img} alt={Cardbanner2.Category} />
 
                 <div className='grocery-content'>

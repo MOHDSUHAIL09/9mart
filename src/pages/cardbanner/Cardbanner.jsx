@@ -10,8 +10,8 @@ export default function CardBanner() {
     return (
         <div className='cardbanner'>
             <div className='cardbanner-image'>
-                {images.map((image, index0) => (
-                    <div key={index0} className="cardbanner-item">
+                {images.map((image, index) => (
+                    <div key={index} className="cardbanner-item">
                         <img src={image.img} alt={image.name} />
                         <div className='banner-content'>
                         {image.Discount && <div className="banner-Discount">{image.Discount}</div>}
