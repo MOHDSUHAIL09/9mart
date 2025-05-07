@@ -13,6 +13,8 @@ import Categories from './categories/Categories';
 import Cardbanner2 from './cardbanner2/Cardbanner2';
 import Product from './product/Product';
 import Sells from './sells/Sells';
+import Features from './Features/Features';
+import Slider from './slider-bottom/Slider';
 
 
 const Home = () => {
@@ -88,7 +90,9 @@ const Home = () => {
 <Categories />
 <Cardbanner2 />
 <Product />
-<Sells/>
+<Sells />
+<Features />
+<Slider />
 
 
 </>
