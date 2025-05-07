@@ -1,0 +1,94 @@
+.app-container {
+    margin: 40px auto 0 auto;  
+    padding: 30px 40px;
+    max-width: 1750px;       
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+    
+    .app-contant{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      line-height: 1.4;
+    }
+    
+    .aap-img {
+      width: 130px;
+      height: 130px;
+    }
+    
+    .app-text h1 {
+      font-size: 40px;
+    }
+    .app-text p {
+      margin: 5px 0 0;
+      font-size: 1.2rem;
+      color: #555;
+      font-weight: bold;
+    }
+    .app-text p span{
+      color: darkcyan;
+    }
+    
+    .app-button {
+      padding: 20px 60px;
+      font-size: 0.95rem;
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .app-button:hover {
+      background-color: #00796b;
+    }
+    
+    /* ✅ Responsive Design */
+    @media (max-width: 992px) {
+      .app-container {
+          flex-direction: column;
+          text-align: center;
+        }
+        .app-contant {
+          flex-direction: column;
+        }
+        .app-button {
+          margin-bottom: 10px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+      .app-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    
+      .app-contant {
+        flex-direction: column;
+      }
+    
+      .app-button {
+        font-size: 15px;
+        padding: 15px 30px;
+        margin-bottom: 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .app-text h1 {
+          font-size: 30px;
+        }
+      
+      .app-text p {
+         font-size: 15px;
+        }
+  
+    }
