@@ -2,9 +2,9 @@ import { useState } from 'react';
 import authService from '../appwrite/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../store/authSlice';
-import { Button, Input, Logo } from './index.js';
+import { Button, Input } from './index.js';
 import { useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form'; 
 
 function Signup() {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ function Signup() {
     <div className="signup-container">
       <div className="signup-form">
         <div className="logo-container">
-          <Logo width="100%" />
+           Hello
         </div>
         <h2 className="form-heading">Sign up to create account</h2>
         <p className="signup-link">
