@@ -14,7 +14,7 @@ function LogoutBtn() {
     <button
       style={{
         display: 'inline-block',
-        padding: '8px 24px',
+        padding: '8px 20px',
         transition: 'background 0.2s ease',
         borderRadius: '9999px',
         cursor: 'pointer',   

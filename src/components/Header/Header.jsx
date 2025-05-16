@@ -18,7 +18,7 @@ const Header = () => {
       {/* 📌 SECTION ==============================>>>>  1 */}
       <nav className="navbar">
         <div className="logo">
-          <Link to="/">XOMART</Link>
+         XOMART
         </div>
 
         <div className="deliver">

@@ -52,9 +52,11 @@ html{
 }
 
 .logo {
+  margin-top: 3px;
   font-size: 25px;
   font-weight: bold;
   font-family: var(--body-font);
+  color: white;
 }
 .deliver{
   font-family: var(--body-font);
@@ -71,26 +73,31 @@ html{
   
 }
 
-.search-container11{
+.search-container11 {
   display: flex;
   align-items: center;
   padding: 5px;
+  border-radius: 5px;
   width: 900px;
+  font-family: var(--body-font);
 }
 
-.input11{
+.search-in{
   flex: 1;
   padding: 10px;
   font-size: 16px;
   border: none;
   outline: none;
+
+  
 }
 
 .search-button {
   background-color: #e3ae69;  
-  padding: 15px 15px;
+  padding: 16px 15px;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
+  margin-bottom: 19px;
 }
 
 .search-button i {
