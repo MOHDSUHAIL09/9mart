@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {  LogoutBtn } from "../index";
+import "./Header.css"
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ const Header = () => {
         </div>
 
         <div className="search-container11">
-          <input type="text" className="input11" placeholder="Search Xomart" />
+          <input type="text" className="search-in" placeholder="Search Xomart" />
           <button className="search-button">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -122,7 +123,7 @@ const Header = () => {
       <div className={`sidebar ${menuOpen ? "active" : ""}`}>
         {/* 📌 Close Button */}
         <div className="close-btn">
-          <div className="logo-menu">Luxewave</div>
+          <div className="logo-menu">XOMART</div>
           <i className="fa-solid fa-xmark" onClick={() => setMenuOpen(false)}></i>
         </div>
 
@@ -136,7 +137,10 @@ const Header = () => {
           <li><Link to="/mobiles">Mobiles</Link></li>
           <li><Link to="/books">Books</Link></li>
           <li><Link to="/gift-cards">Gift Cards</Link></li>
-          {authStatus && <LogoutBtn />}
+
+                <div className="logout-nav">
+           {authStatus && <LogoutBtn />}
+            </div>
         </ul>
       </div>
     </>

@@ -32,406 +32,8 @@ html{
 
 
 
-
-
-
-
-
-
-
-
-
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-  background-color: #141d29;
-  color: white;
-}
-
-.logo {
-  margin-top: 3px;
-  font-size: 25px;
-  font-weight: bold;
-  font-family: var(--body-font);
-  color: white;
-}
-.deliver{
-  font-family: var(--body-font);
-  color: var(--light-color);
-}
-.rotate-location{
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 10px;
-}
-.delivering{
-  width: 160px;
-  font-size: 10px;
-  
-}
-
-.search-container11 {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  border-radius: 5px;
-  width: 900px;
-  font-family: var(--body-font);
-}
-
-.search-in{
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-
-  
-}
-
-.search-button {
-  background-color: #e3ae69;  
-  padding: 16px 15px;
-  cursor: pointer;
-  border-radius: 0 5px 5px 0;
-  margin-bottom: 19px;
-}
-
-.search-button i {
-  font-size: 16px;
-  color: black;
-}
-.dropd select{
-  position: relative;
-  display: inline-block;
-  appearance: none; 
-  font-family: var(--body-font);
-}
-.dropd option{
-  color: #333;
-}
-
-.user{
-  display: none;
-  margin-left: 50px;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.sing-in{
-  font-size: 15px;
-}
-.returns-orders{
-  margin-left: 25px;
-  font-family: var(--body-font);
-}
-
-.cart-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-}
-
-.cart-icon {
-  position: relative;
-  font-size: 25px;
-}
-
-.cart-count {
-  position: absolute;
-  top: -5px;
-  right: -10px;
-  background: orange;
-  color: black;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  align-items: center;
-}
-
-.nav-links li {
-  margin: 0 15px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-}
-
-.nav-links select {
-  background: transparent;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-
-
-.navbar-container {
-  display: flex;
-  align-items: center;
-  background: #232f3e;
-  padding: 10px 15px;
-}
-.hamburger {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-}
-
-.bottom-navbar {
-  display: flex;
-  margin-left: 30px;
-  font-family: var(--body-font);
-}
-
-.bottom-navbar li a {
-  color: white;
-  padding: 5px 8px;
-}
-
-.bottom-navbar li a:hover {
-  background: #37475a;
-  border-radius: 5px;
-}
-
-
-/* 📌 Amazon-Style Sidebar with Enhanced Design & Logo */
-.sidebar-overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out;
-    z-index: 999;
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -400px;
-    width: 400px;
-    height: 100vh;
-    background: linear-gradient(to bottom, #232F3E, #37475A);
-    color: white;
-    transition: left 0.3s ease-in-out;
-    z-index: 1000;
-    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.3);
-    border-right: 2px solid #FF9900;
-}
-
-/* 📌 Active State */
-.sidebar-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.sidebar.active {
-    left: 0;
-}
-
-.sidebar-header .logo h2 {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
-.category-links li {
-    padding: 15px 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-}
-
-.category-links li:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transition: background 0.2s ease-in-out;
-}
-
-.category-links li a {
-    color: white;
-    transition: color 0.3s ease-in-out;
-}
-
-.close-btn {
-    display: flex;
-    justify-content: space-between;
-    text-align: right;
-    padding: 18px;
-    cursor: pointer;
-    font-size: 28px;
-    background: #131921;
-    color: #FF9900;
-    transition: color 0.3s ease;
-
-}
-.close-btn:hover {
-    color: white;
-}
-
-
-.service select {
-  font-size: 14px;
-  cursor: pointer;
-  outline: none;
-  color: white;
-  appearance: none; 
-  background: none; 
-  border: none;
-}
-
-
-.service select:focus {
-  background-color: #232f3e;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.service select {
-  text-align: center; 
-}
-
-.service select option {
-  font-size: 14px;
-  text-align: center;
-}
-
-.service select option:disabled {
-  font-weight: bold;
-  color: white;
-}
-
-
-
-
-
-
-
-/* 🔹 Responsive Design */
-@media (max-width: 1600px) {
-  .navbar {
-    max-width: 100%;
-  }
-  .navbar-container {
-    max-width: 100%;
-  }
-}
-
-
-
-@media (max-width: 1200px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-    position: relative;
-}
-  .search-container11 {
-    width: 100%;
-    margin-top: 10px;
-}
-  .deliver {
-    position: absolute;
-    top: 150px;
-    display: flex;
-}
-  .deliver span{
-    color :var(--light-color);
-    margin-left: 5px;
-}
-  .bottom-nav-loction{
-    padding: 10px;
-}
-  .rotate-location{
-    flex-direction: row-reverse;
-    display: flex;  
-    gap: 10px;
-  align-items: center;
-}
-.dropd{
-    display: none;
-}
-.user{
-    display: flex;
-    position: absolute;
-    right: 70px;
-    top: 13px;
-    display: block;
-    font-size: 20px;
-}
- .signin-text {
-    font-size: 13px; 
-    padding-right: 5px;
-    font-family: var(--body-font);
-}
-  .cart-container {
-    position: absolute;
-    right: 10px;
-    top: 15px;
-}
-  .returns-orders{
-    display: none;
-}
-  .hamburger {
-    position: absolute;
-    left: 0;
-    top: 7px;
-    display: block;
-    font-size: 20px;
-}
-  .logo{
-    padding-left: 30px;
-}
-  .menu-all{
-    display: none;
-}
-  .bottom-navbar {
-    display: none;
-  }
-  .logout-desktop{
-    display: none;
-  }
-}
-  
-@media (max-width: 480px) {
-  .sidebar {
-      width: 85%;
-  }
-}
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
 .image-wrapper {
-  padding: 10px;
+
   width: 100%;
   aspect-ratio: 12/ 5; 
   position: relative;
@@ -1111,3 +713,42 @@ input[type="password"]:focus {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* Base styles for Swiper navigation buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  border-radius: 50%; /* Circular buttons */
+  color: #ffffff; /* White arrow color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5px;
+  z-index: 10;
+}
+
+/* Arrow icons */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 5px;
+  color: #ffffff; /* White arrow color */
+}
+
+/* Disabled state */
+.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
