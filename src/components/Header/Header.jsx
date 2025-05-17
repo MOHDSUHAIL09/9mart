@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {  LogoutBtn } from "../index";
 import "./Header.css"
+import PropTypes from 'prop-types';
 
-const Header = () => {
+
+const Header = ({ cartCount }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const authStatus = useSelector((state) => state.auth.status);
@@ -64,7 +66,7 @@ const Header = () => {
           <li className="cart-container">
             <div className="cart-icon">
               <i className="fas fa-shopping-cart"></i>
-              <span className="cart-count">3</span>
+              <span className="cart-count">{ cartCount }</span>
             </div>
           </li>
           <div className="logout-desktop">
@@ -145,6 +147,9 @@ const Header = () => {
       </div>
     </>
   );
+};
+Header.propTypes = {
+  cartCount: PropTypes.number.isRequired,  // यहाँ add करें
 };
 
 export default Header;

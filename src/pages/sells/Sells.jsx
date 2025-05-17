@@ -1,3 +1,4 @@
+import { useOutletContext } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -5,6 +6,7 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import './Sells.css'; // अपना custom CSS
 
 export default function DailyBestSells() {
+  const { handleAddToCart } = useOutletContext(); // function App.jsx से मिल रहा
   const products = [
     {
       title: "Golden Pineapple",
@@ -86,7 +88,7 @@ export default function DailyBestSells() {
                     <span className="old-price">${product.oldPrice}</span>
                   </p>
                   <p className="rating">⭐ {product.rating}</p>
-                  <button className="add-cart">+ Add to cart</button>
+                  <button onClick={handleAddToCart} className="add-cart">+ Add to cart</button>
                 </div>
               </SwiperSlide>
             ))}
