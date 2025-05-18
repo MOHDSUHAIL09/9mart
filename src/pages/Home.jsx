@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -86,6 +85,7 @@ const Home = () => {
 
 
 <DownloadApp />
+<Visit />
 <Visit />
 <Categories />
 <Cardbanner />
