@@ -1,5 +1,5 @@
 .app-container {
-   margin-top: 20px;
+   margin-top: 10px;
     background-color: #eee;
     display: flex;
     justify-content: space-between;
@@ -34,7 +34,7 @@
     .app-button {
       padding: 20px 60px;
       font-size: 0.95rem;
-      background-color: #909090;
+      background-color: #0f8a86;
       color: white;
       border: none;
       cursor: pointer;
