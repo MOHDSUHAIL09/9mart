@@ -117,8 +117,6 @@ export default function Home() {
                     <img
                       src={img}
                       alt={item.imageNames ? item.imageNames[imgIndex] : "Category Image"}
-                      loading="lazy"
-                      onError={(e) => (e.target.src = "https://via.placeholder.com/150")}
                     />
                     <p className="image-name">{item.imageNames ? item.imageNames[imgIndex] : "No Name"}</p>
                   </div>
