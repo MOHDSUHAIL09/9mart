@@ -47,7 +47,8 @@
     
     /* ✅ Responsive Design */
     @media (max-width: 992px) {
-      .app-container {
+      .app-container {    
+        
           flex-direction: column;
         }
     }

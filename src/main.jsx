@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import { AuthLayout, Login } from './components/index.js'
 import Signup from './pages/Signup'
+import ShopingPage from './pages/shoping/ShopingPage'
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
                 </AuthLayout>
             ),
         },
+        {
+            path: "shpoing/:name",
+            element: <ShopingPage />
+        }
        
     ],
 },

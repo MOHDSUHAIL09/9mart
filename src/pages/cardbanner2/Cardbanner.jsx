@@ -1,4 +1,4 @@
-import './Cardbanner2.css'
+import './Cardbanner.css'
 
 export default function Cardbanner2() {
 
