@@ -1,6 +1,6 @@
 import  { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Shoping.css";
+import "./Shopping.css";
 
 
 export default function Home() {
