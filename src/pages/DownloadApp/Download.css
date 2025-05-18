@@ -1,13 +1,8 @@
 .app-container {
-    margin: 40px auto 0 auto;  
-    padding: 30px 40px;
-    max-width: 1750px;       
+   margin-top: 20px;
     background-color: #eee;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
   }
   
     
@@ -39,10 +34,9 @@
     .app-button {
       padding: 20px 60px;
       font-size: 0.95rem;
-      background-color: #000;
+      background-color: #909090;
       color: white;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -55,40 +49,40 @@
     @media (max-width: 992px) {
       .app-container {
           flex-direction: column;
-          text-align: center;
-        }
-        .app-contant {
-          flex-direction: column;
-        }
-        .app-button {
-          margin-bottom: 10px;
         }
     }
     
     @media (max-width: 768px) {
       .app-container {
         flex-direction: column;
-        text-align: center;
       }
-    
-      .app-contant {
-        flex-direction: column;
-      }
-    
-      .app-button {
-        font-size: 15px;
-        padding: 15px 30px;
-        margin-bottom: 10px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .app-text h1 {
+        .app-text h1 {
           font-size: 30px;
         }
       
       .app-text p {
          font-size: 15px;
         }
+    
+      .app-button {
+        font-size: 12px;
+        padding: 10px 10px;
+      }
+
+
+    }
+    
+    @media (max-width: 480px) {
+      .app-text h1 {
+          font-size: 20px;
+        }
+      
+      .app-text p {
+         font-size: 10px;
+        }
+      .aap-img {
+        width: 80px;
+        height: 80px;
+    }
   
     }
