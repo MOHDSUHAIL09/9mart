@@ -3,17 +3,16 @@
     justify-content: center;
     align-items: flex-start;
     gap: 15px;
-    padding: 40px 20px;
+    padding: 40px 5px;
     flex-wrap: wrap;
     background-color: #fff;
   }
   
   .feature-card {
-    max-width: 450px;
+    max-width: 362px;
     text-align: center;
-    padding: 50px 50px;
+    padding: 10px 45px;
     border: 1px solid #e6e6e6;
-    border-radius: 8px;
     background-color: #ffffff;
     transition: all 0.2s ease;
   }
