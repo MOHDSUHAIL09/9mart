@@ -69,7 +69,7 @@
   @media screen and (max-width: 768px) {
     .grocery-img {
         flex-direction: column;
-        gap: 30px;
+        gap: 5px;
       }
 
     .grocery-item {

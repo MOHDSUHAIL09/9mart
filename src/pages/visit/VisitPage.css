@@ -28,6 +28,7 @@
     .category-images > div:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgb(43, 143, 126);
     }
 
     .category-images img {
@@ -146,7 +147,7 @@
       }
 
       .category-images {
-        grid-template-columns: repeat(2, 1fr); /* ✅ Two images side-by-side on small screens */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 12px;
       }
 
@@ -165,16 +166,12 @@
       }
 
       .vbutton {
-        padding: 4px 12px;
+        padding: 5px 12px;
         font-size: 0.8rem;
       }
 
       .rating-content {
         flex-direction: column;
         gap: 4px;
-      }
-
-      .rr {
-        margin: 6px 0;
       }
     }

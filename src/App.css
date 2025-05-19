@@ -747,13 +747,3 @@ input[type="password"]:focus {
 
 
 
-
-
-
-/* Arrow icons */
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 25px !important;
-  color: #000000; /* White arrow color */
-}
-

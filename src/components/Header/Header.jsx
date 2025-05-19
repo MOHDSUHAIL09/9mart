@@ -54,7 +54,7 @@ const Header = ({ cartCount }) => {
           </li>
 
           <div className="user">
-            <span className="signin-text">{authStatus && <LogoutBtn />}</span>
+            <span className="signin-text">{authStatus ? <LogoutBtn /> : 'Sign In'}</span>
             <i className="fa-solid fa-user"></i>
           </div>
 

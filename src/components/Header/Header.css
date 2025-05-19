@@ -37,7 +37,7 @@
     display: flex;
     text-align: center;
     align-items: center;
-    width: 900px;
+    width: 750px;
     font-family: var(--body-font);
   }
   
@@ -336,7 +336,7 @@
       font-size: 20px;
   }
    .signin-text {
-      font-size: 13px; 
+      font-size: 17px; 
       padding-right: 5px;
       font-family: var(--body-font);
   }
@@ -374,15 +374,13 @@
         width: 85%;
     }
 
-
-    
   .search-in{
     margin-top: 11px;
     padding: 8px !important;
   }
   .search-button {
     padding: 9px 12px;
-    margin-top: 2.5px;
+    margin-top: 2.2px;
   }
   }
   
