@@ -84,6 +84,12 @@ const Home = () => {
 
 
 
+
+
+
+
+
+
 <DownloadApp />
 <Visit />
 <Categories />
