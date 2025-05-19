@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import DownloadApp from './DownloadApp/Download';
-
+import Visit from './visit/Visit';
 import Categories from './categories/Categories';
 import Cardbanner from './cardbanner/Cardbanner';
 import Product from './product/Product';
@@ -85,6 +85,7 @@ const Home = () => {
 
 
 <DownloadApp />
+<Visit />
 <Categories />
 <Cardbanner />
 <Product />
