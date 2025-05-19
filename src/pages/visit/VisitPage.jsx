@@ -1,13 +1,14 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useOutletContext } from "react-router-dom";
+
 import "./VisitPage.css"
 
 export default function CategoryPage() {
+   const { handleAddToCart } = useOutletContext(); // function App.jsx से मिल रहा
   const location = useLocation();
   const categoryName = location.pathname.split("/").pop(); // URL से category name निकाल रहे हैं
 
   const categories = [
     {
-      "title": "Up to 55% Off | Appliances for Home",
       images: [
        {img: "https://cdn.pixabay.com/photo/2022/01/04/05/29/kitchen-6914223_1280.jpg", category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
        {img: "https://cdn.pixabay.com/photo/2020/08/10/06/52/cleaning-5476950_1280.jpg", category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
@@ -28,7 +29,7 @@ export default function CategoryPage() {
     },
     
     {
-      title: "Revamp Your Home in Style",
+  
       images: [
         {img: "https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/706b4685-f5a6-47cb-941a-929ce6ee9be9._CR0,477,2000,1047_SX810_CB1169409_QL70_.jpg", category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
         {img:"https://m.media-amazon.com/images/I/91akRTwkoFL._AC_UL480_FMwebp_QL65_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
@@ -47,7 +48,6 @@ export default function CategoryPage() {
       link: "kallen",
     },
     {
-      title: "Mega Deals on Laptops",
       images: [
         {img:"https://m.media-amazon.com/images/I/81AAL0FDfnL._AC_UL480_FMwebp_QL65_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
         {img:"https://m.media-amazon.com/images/I/5147cEm6w-L._AC_UL480_FMwebp_QL65_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
@@ -68,7 +68,7 @@ export default function CategoryPage() {
       link: "women",
     },
     {
-      title: "Best Offers on Smartphones",
+  
       images: [
         {img:"https://m.media-amazon.com/images/I/71qLcYLgsaL._AC_UL480_FMwebp_QL65_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
         {img:"https://m.media-amazon.com/images/I/71V5rj5NmtL._AC_UL480_FMwebp_QL65_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
@@ -90,7 +90,7 @@ export default function CategoryPage() {
       link: "bathrom",           
     },
     {
-      title: "Appliances for your home | Up to 55% off",
+     
       images: [
          {img:"https://m.media-amazon.com/images/I/61vcRUbb9CL._AC_UL960_FMwebp_QL65_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
          {img:"https://m.media-amazon.com/images/I/71veQSm4GiL._AC_UL480_FMwebp_QL65_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
@@ -112,7 +112,7 @@ export default function CategoryPage() {
       link: "washing",
     },
     {
-      title: "Starting ₹199 | Amazon Brands & more",
+
       images: [
          {img:"https://m.media-amazon.com/images/I/41OPUX6vQSL._SR480,440_.jpg",name: "referator ac"},
          {img:"https://m.media-amazon.com/images/I/41GBjbe40AL._SR480,440_.jpg",name: "referator ac"},
@@ -124,7 +124,7 @@ export default function CategoryPage() {
     },
 
     {
-      title: "Appliances for your home | Up to 55% off",
+  
       images: [
        {img:"https://m.media-amazon.com/images/I/51rMKrKA9dL._AC_SR250,250_QL65_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000"},
        {img:"https://m.media-amazon.com/images/I/71RODY0smeL._AC_UY327_FMwebp_QL65_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
@@ -155,7 +155,7 @@ export default function CategoryPage() {
       link: "watch",
     },
     {
-      title: "Starting ₹199 | Amazon Brands & more",
+
       images: [
        {img:"https://m.media-amazon.com/images/I/61MTISv8PkL._AC_SY200_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
        {img:"https://m.media-amazon.com/images/I/61xKeolcI3L._AC_SY200_.jpg",category: "fdsgfv", name: "referator ac", price: "₹25,999", oldPrice: "₹38,000" },
@@ -174,7 +174,7 @@ export default function CategoryPage() {
     <div className="category-page12">
       {category ? (
         <div>
-          <h2>{category.title}</h2>
+
           <div className="category-images">
             {category.images.map((item, index) => (
               <div key={index}>
@@ -186,13 +186,11 @@ export default function CategoryPage() {
                   <span className="new-price7">{item.price}</span>{" "}
                   <span className="old-price7">{item.oldPrice}</span>
                 </p>
-                <div className="dd"> Free Delivery</div>
-               
-
-
+                <div className="free-deiivery"> Free Delivery</div>
+                <div className="rating-content">
                 <span className="rr">⭐⭐⭐⭐</span>
-                <button type="button" className="vbutton">add</button>
-              </div>
+                <button onClick={handleAddToCart} className="vbutton">+ Add</button>
+              </div></div>
             ))}
           </div>
         </div>

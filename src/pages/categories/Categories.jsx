@@ -22,6 +22,8 @@ export default function Categories() {
   return (
     <>
     <div className='categories-text'>Shop Popular Categories</div>
+    <div className="underline"></div>
+    
 
     <div className="categories-container">
       {categories.map((item, index) =>(
