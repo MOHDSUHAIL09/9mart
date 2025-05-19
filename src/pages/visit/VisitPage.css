@@ -1,0 +1,98 @@
+.category-page12 {
+  padding: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f8f8;
+}
+
+.category-page12 h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.category-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.category-images > div {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-images > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.category-images img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.acname {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+  margin: 8px 0 4px;
+}
+
+.price {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.new-price7 {
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.old-price7 {
+  text-decoration: line-through;
+  color: #888;
+  margin-left: 6px;
+}
+
+.category-name {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.rr {
+  font-size: 1.2rem;
+  color: #ffb400;
+  display: block;
+  margin: 8px 0;
+}
+
+.vbutton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.vbutton:hover {
+  background-color: #0056b3;
+}
+
+.error-msg {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ff4444;
+  padding: 30px;
+}
+

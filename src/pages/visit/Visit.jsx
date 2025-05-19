@@ -122,9 +122,10 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Link to={`/category/${item.link}`} className="view-more">
-                See more
-              </Link>
+             <Link to={`/Visit/${item.link}`} className="view-more">
+              See more
+            </Link>
+
             </div>
           ))
         ) : (

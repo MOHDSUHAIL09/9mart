@@ -5,11 +5,12 @@ import './App.css'
 import authService from "./appwrite/auth"
 import {login, logout} from "./store/authSlice"
 import { Footer, Header } from './components'
-import { Outlet} from 'react-router-dom'
+import { Outlet, useLocation} from 'react-router-dom'
 
 function App() {
   const [loading, setLoading] = useState(true)
   const [cartCount, setCartCount] = useState(0); // ✅ Add this line
+  const location = useLocation();
 
 
   const dispatch = useDispatch()
@@ -24,7 +25,7 @@ function App() {
       }
     })
     .finally(() => setLoading(false))
-  }, [dispatch]);
+  }, [dispatch],[location.pathname]);
 
    const handleAddToCart = () => {
     setCartCount(cartCount + 1);
