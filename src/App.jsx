@@ -34,9 +34,9 @@ function App() {
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
       <div className="w-full block">
-        <Header cartCount={cartCount} /> {/* ✅ Pass count to Header */}
+        <Header cartCount={cartCount} /> 
         <main>
-          <Outlet context={{ handleAddToCart }} /> {/* ✅ Pass function to child */}
+          <Outlet context={{ handleAddToCart }} /> 
         </main>
         <Footer />
       </div>

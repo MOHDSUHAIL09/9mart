@@ -8,6 +8,7 @@ import Home from './pages/Home.jsx'
 import { AuthLayout, Login } from './components/index.js'
 import Signup from './pages/Signup'
 import VisitPage from "./pages/visit/VisitPage.jsx"
+import CategoryPage from './pages/categories/CategoriesPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -38,7 +39,12 @@ const router = createBrowserRouter([
         {
             path: "Visit/:name",
             element: <VisitPage />
+        },
+        {
+            path: "categoriesPage/:name",
+            element: <CategoryPage />
         }
+
        
     ],
 },
