@@ -9,6 +9,7 @@ import { AuthLayout, Login } from './components/index.js'
 import Signup from './pages/Signup'
 import VisitPage from "./pages/visit/VisitPage.jsx"
 import CategoryPage from './pages/categories/CategoriesPage.jsx'
+import CartPage from './components/Header/CartPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         {
             path: "categoriesPage/:name",
             element: <CategoryPage />
+        },
+        {
+           path: "/cart",
+           element: <CartPage />
         }
 
        

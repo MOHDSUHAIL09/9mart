@@ -47,9 +47,11 @@ const PopularProducts = () => {
                 <div className="rating">
                   ⭐⭐⭐ {product.rating} ({product.reviews})
                 </div>
-                 <button onClick={handleAddToCart} className='add-btn'>
-        + Add
-      </button>
+              <button onClick={() => handleAddToCart(product)} className='add-btn'>
+  + Add
+</button>
+
+
               </div>
             </div>
           </div>

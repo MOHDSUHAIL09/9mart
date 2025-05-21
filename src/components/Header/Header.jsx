@@ -63,12 +63,13 @@ const Header = ({ cartCount }) => {
             <p className="orders">& Orders</p>
           </li>
 
-          <li className="cart-container">
-            <div className="cart-icon">
-              <i className="fas fa-shopping-cart"></i>
-              <span className="cart-count">{ cartCount }</span>
-            </div>
-          </li>
+        <li className="cart-container">
+  <Link to="/cart" className="cart-icon">
+    <i className="fas fa-shopping-cart"></i>
+    <span className="cart-count">{ cartCount }</span>
+  </Link>
+</li>
+
           <div className="logout-desktop">
            {authStatus && <LogoutBtn />}
             </div>
