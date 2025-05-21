@@ -1,0 +1,123 @@
+
+.amazon-cart-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.amazon-cart-heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #727272;
+  border-bottom: 2px solid rgb(214, 211, 211);
+  padding: 15px;
+}
+
+.amazon-cart-item {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.amazon-cart-left {
+  flex-shrink: 0;
+}
+
+.amazon-item-image {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+.amazon-cart-right {
+  flex: 1;
+}
+
+.amazon-item-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.amazon-stock {
+  color: #007600;
+  font-size: 14px;
+}
+
+.amazon-shipping {
+  font-size: 14px;
+  margin: 2px 0 8px;
+}
+
+.amazon-item-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.amazon-quantity-section {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.amazon-quantity-btn {
+  background-color: transparent;
+  border: 1px solid #888;
+  padding: 4px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.amazon-quantity-count {
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.amazon-actions {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.amazon-link {
+  background: none;
+  border: none;
+  color: #007185;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+.amazon-divider {
+  margin: 0 8px;
+  color: #ccc;
+}
+
+.amazon-cart-subtotal {
+  text-align: right;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.cart-empty{
+    padding: 80px;
+    font-size: 25px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+.amazon-item-title{
+    font-size: 13px;
+}
+.amazon-shipping{
+    font-size: 13px;
+}
+.amazon-item-price{
+    font-size: 17px;
+}
+
+}

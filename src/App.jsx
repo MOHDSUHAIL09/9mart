@@ -8,7 +8,20 @@ import { Outlet, useLocation } from 'react-router-dom'
 
 function App() {
   const [loading, setLoading] = useState(true)
-  const [cart, setCart] = useState([]);
+
+  // ✅ Step 1: Load cart from localStorage
+  const [cart, setCart] = useState(() => {
+    try {
+      const stored = localStorage.getItem('cart')
+      return stored ? JSON.parse(stored) : []
+    } catch (err) {
+      return []
+    }
+  })
+
+
+
+
   const location = useLocation();
 
   const dispatch = useDispatch()
@@ -25,6 +38,14 @@ function App() {
       .finally(() => setLoading(false))
   }, [dispatch, location.pathname])
 
+   // ✅ Step 2: Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
+
+
+
+
   const handleAddToCart = (product) => {
     setCart(prevCart => [...prevCart, product])
   }
@@ -35,7 +56,7 @@ function App() {
         <Header cartCount={cart.length} />
         <main>
           {/* Outlet को context में cart और addToCart दे रहे हैं */}
-          <Outlet context={{ handleAddToCart, cart }} />
+          <Outlet context={{ handleAddToCart, cart, setCart }} />
         </main>
         <Footer />
       </div>
