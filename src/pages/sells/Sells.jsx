@@ -88,7 +88,8 @@ export default function DailyBestSells() {
                     <span className="old-price">${product.oldPrice}</span>
                   </p>
                   <p className="rating">⭐ {product.rating}</p>
-                  <button onClick={handleAddToCart} className="add-cart">+ Add to cart</button>
+                  <button onClick={() =>handleAddToCart(product)} className="add-cart">+ Add to cart</button>
+                  
                 </div>
               </SwiperSlide>
             ))}
