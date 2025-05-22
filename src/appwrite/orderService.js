@@ -14,7 +14,7 @@ export class OrderService {
     }
 
     // ✅ Order create karne ka function (with fixed "Price")
-    async createOrder({  productName, Price, quantity, userEmail, userId, paymentStatus }) {
+    async createOrder({  productName, Price, quantity, userEmail, userId, paymentStatus,imageUrl }) {
         try {
             const response = await this.databases.createDocument(
                 conf.appwriteDatabaseId,
@@ -28,7 +28,9 @@ export class OrderService {
                     userEmail,                  // ✅ Required (String)
                     userId,                     // ✅ Required (String)
                     paymentStatus,              // ✅ Required (String)
-                    timestamp: new Date().toISOString() // ✅ Required (Datetime)
+                    timestamp: new Date().toISOString(),// ✅ Required (Datetime)
+                    imageUrl,
+                    
                    
                 }
             );

@@ -45,7 +45,6 @@ function App() {
 
 
 
-
   const handleAddToCart = (product) => {
     setCart(prevCart => [...prevCart, product])
   }

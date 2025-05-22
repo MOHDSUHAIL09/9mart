@@ -63,7 +63,7 @@ const CartPage = () => {
         userId: user.$id,
         paymentStatus: "pending",
         timestamp: new Date().toLocaleString("en-IN", {timeZone: "Asia/Kolkata", hour12: true,}),
-        imageUrl: item.image,
+        imageUrl: item.image || "https://via.placeholder.com/150",
 
       };
       
