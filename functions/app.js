@@ -1,5 +1,9 @@
+/* eslint-env node */
+/* global process, require */
+
 const nodemailer = require('nodemailer');
 
+// Read payload from environment
 const payload = JSON.parse(process.env.APPWRITE_FUNCTION_EVENT_DATA || '{}');
 
 const transporter = nodemailer.createTransport({
@@ -12,7 +16,7 @@ const transporter = nodemailer.createTransport({
 
 const mailOptions = {
   from: process.env.SMTP_EMAIL,
-  to: 'your@email.com', // Replace with your email
+  to: 'your@email.com',
   subject: '🛒 New Order Confirmation',
   text: `🛍️ A new order has been placed!\n\nProduct: ${payload.productName}\nPrice: ₹${payload.price}\nCustomer: ${payload.userEmail}`,
 };
