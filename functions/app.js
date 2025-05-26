@@ -1,5 +1,5 @@
 /* eslint-env node */
-/* global process, require */
+
 
 const nodemailer = require('nodemailer');
 
