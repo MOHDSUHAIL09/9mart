@@ -1,8 +1,8 @@
 {
-  "name": "order-confirmation",
+  "name": "send-order-notification",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",          
   "dependencies": {
     "nodemailer": "^6.9.0"
   }
