@@ -1,70 +1,73 @@
 import express from "express";
 import nodemailer from "nodemailer";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config(); // load .env file
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// OTP इन-मेमोरी स्टोर (प्रोडक्शन में DB यूज़ करें)
+// OTP store in-memory (production me DB use karo)
 const otpStore = new Map();
 
-// Nodemailer transporter सेटअप (Gmail App Password डालें)
+// Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-     user: process.env.GMAIL_USER,
+    user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS,
   },
 });
 
-// SMTP कनेक्शन चेक करें
+// SMTP check
 transporter.verify((error, success) => {
   if (error) {
-    console.error("SMTP connection error:", error);
+    console.error("❌ SMTP connection error:", error);
   } else {
-    console.log("SMTP server is ready to send emails");
+    console.log("✅ SMTP server is ready to send emails");
   }
 });
 
-// OTP जनरेट करने का फंक्शन
+// OTP generate
 function generateOTP() {
-  return Math.floor(100000 + Math.random() * 900000).toString();  // 6 अंकों का OTP
+  return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
-// OTP भेजने का API
+// Send OTP API
 app.post("/request-otp", async (req, res) => {
   const { email } = req.body;
   if (!email) return res.status(400).send({ error: "Email required" });
 
   const otp = generateOTP();
-  const expiresAt = Date.now() + 5 * 60 * 1000; // 5 मिनट में एक्सपायर
+  const expiresAt = Date.now() + 5 * 60 * 1000;
 
   otpStore.set(email, { otp, expiresAt });
 
   const mailOptions = {
-    from: "suhailmohd7799@gmail.com",
+    from: process.env.GMAIL_USER,
     to: email,
-    subject: "Your OTP for Login",
+    subject: "Your OTP Code",
     text: `Your OTP is ${otp}. It expires in 5 minutes.`,
   };
 
   try {
     await transporter.sendMail(mailOptions);
     res.send({ message: "OTP sent to your email" });
-  } catch (error) {
-    console.error("Mail sending failed:", error);
+  } catch (err) {
+    console.error("Email send failed:", err);
     res.status(500).send({ error: "Failed to send OTP" });
   }
 });
 
-// OTP verify करने का API
+// Verify OTP API
 app.post("/verify-otp", (req, res) => {
   const { email, otp } = req.body;
   if (!email || !otp) return res.status(400).send({ error: "Email and OTP required" });
 
   const record = otpStore.get(email);
-  if (!record) return res.status(400).send({ error: "OTP not requested or expired" });
+  if (!record) return res.status(400).send({ error: "OTP not found" });
 
   if (record.expiresAt < Date.now()) {
     otpStore.delete(email);
@@ -74,10 +77,10 @@ app.post("/verify-otp", (req, res) => {
   if (record.otp !== otp) return res.status(400).send({ error: "Invalid OTP" });
 
   otpStore.delete(email);
-  res.send({ message: "Login successful", email });
+  res.send({ message: "OTP verified" });
 });
 
-// Server start
-app.listen(4000, () => {
-  console.log("Server started on port 4000");
+// Server start on 0.0.0.0 for mobile access
+app.listen(4000, "0.0.0.0", () => {
+  console.log("🚀 Server started on http://0.0.0.0:4000");
 });
