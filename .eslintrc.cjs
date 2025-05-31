@@ -15,6 +15,20 @@ module.exports = {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
+
+
+
+      {
+  "env": {
+    "node": true,
+    "es2021": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    // your rules
+  }
+}
+
     ],
   },
 

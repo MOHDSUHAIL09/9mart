@@ -16,6 +16,9 @@ import Features from './Features/Features';
 import Slider from './slider-bottom/Slider';
 
 
+
+
+
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -88,8 +91,6 @@ const Home = () => {
 
 
 
-
-
 <DownloadApp />
 <Visit />
 <Categories />
@@ -98,6 +99,9 @@ const Home = () => {
 <Sells />
 <Features />
 <Slider />
+
+
+
 
 
 

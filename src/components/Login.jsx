@@ -1,73 +1,87 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { login as authLogin } from '../store/authSlice'
-import { Button, Input } from "./index"
-import { useDispatch } from "react-redux"
-import authService from "../appwrite/auth"
-import { useForm } from "react-hook-form"
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login as authLogin } from '../store/authSlice';
+import authService from '../appwrite/auth';
+
 
 function Login() {
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const { register, handleSubmit } = useForm()
-    const [error, setError] = useState("")
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    const login = async (data) => {
-        setError("")
-        try {
-            const session = await authService.login(data)
-            if (session) {
-                const userData = await authService.getCurrentUser()
-                if (userData) dispatch(authLogin(userData));
-                navigate("/")
-            }
-        } catch (error) {
-            setError(error.message)
+  const loginUser = async (data) => {
+    setError("");
+    setLoading(true);
+    try {
+      const session = await authService.login(data);
+      if (session) {
+        const userData = await authService.getCurrentUser();
+        if (userData) {
+          dispatch(authLogin(userData));
+          navigate("/");
         }
+      }
+    } catch (err) {
+      setError(err?.message || "Login failed. Please try again.");
     }
+    setLoading(false);
+  };
 
-    return (
-        <div className="login-container">
-            <div className="login-form">
-                <div className="logo-container">
-                    Hello
-                </div>
-                <h2 className="form-heading">Sign in to your account</h2>
-                <p className="signup-link">
-                    Don&apos;t have any account?&nbsp;
-                    <Link to="/signup" className="signup-text">
-                        Sign Up
-                    </Link>
-                </p>
-                {error && <p className="error-message">{error}</p>}
-                <form onSubmit={handleSubmit(login)} className="form">
-                    <div className="input-group">
-                        <Input
-                            label="Email: "
-                            placeholder="Enter your email"
-                            type="email"
-                            {...register("email", {
-                                required: true,
-                                validate: {
-                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                                        "Email address must be a valid address",
-                                }
-                            })}
-                        />
-                        <Input
-                            label="Password: "
-                            type="password"
-                            placeholder="Enter your password"
-                            {...register("password", {
-                                required: true,
-                            })}
-                        />
-                        <Button type="submit" className="submit-btn">Sign in</Button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    )
+  return (
+    <div className="signup-wrapper">
+      <div className="signup-left">
+        <form onSubmit={handleSubmit(loginUser)} className="signup-form">
+          <h2>Login</h2>
+          {error && <p className="error">{error}</p>}
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+                message: "Invalid email format"
+              }
+            })}
+          />
+          {errors.email && <p className="error">{errors.email.message}</p>}
+
+          <input
+            type="password"
+            placeholder="Enter your password"
+            {...register("password", {
+              required: "Password is required"
+            })}
+          />
+          {errors.password && <p className="error">{errors.password.message}</p>}
+
+          <button type="submit" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
+
+          <p className="or-text">or continue with</p>
+          <div className="social-icons">
+            <button type="button" className="social-btn"><i className="fab fa-google"></i></button>
+            <button type="button" className="social-btn"><i className="fab fa-facebook-f"></i></button>
+          </div>
+        </form>
+      </div>
+
+      <div className="signup-right">
+        <h1>Welcome Back!</h1>
+        <p>Don't have an account?</p>
+        <Link to="/signup">
+          <button>Sign Up</button>
+        </Link>
+        <img src="/login-illustration.svg" alt="Illustration" className="illustration" />
+      </div>
+    </div>
+  );
 }
 
-export default Login
+export default Login;

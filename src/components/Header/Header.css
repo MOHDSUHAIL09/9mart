@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
+    padding: 15px;
     background-color: #141d29;
     color: white;
   }
@@ -35,10 +35,11 @@
     align-items: center;
     width: 750px;
     font-family: var(--body-font);
+  
   }
   
   .search-in{
-    
+    flex: 1;
     font-size: 16px;
     border: none !important;
     outline: none !important;
@@ -50,11 +51,11 @@
   
   .search-button {
     background-color: darkcyan;  
-    padding: 13.9px 15px;
+    padding: 13px 15px;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
-    margin-bottom: 10px;
     border: none;
+    margin-top: 11px;
   }
   
   .search-button i {
@@ -300,11 +301,10 @@
   }
     .search-container11 {
       width: 100%;
-      margin-top: 10px;
   }
     .deliver {
       position: absolute;
-      top: 140px;
+      top: 115px;
       display: flex;
   }
     .deliver span{
@@ -370,13 +370,5 @@
         width: 85%;
     }
 
-  .search-in{
-    margin-top: 11px;
-    padding: 8px !important;
-  }
-  .search-button {
-    padding: 9px 12px;
-    margin-top: 2.2px;
-  }
   }
   
