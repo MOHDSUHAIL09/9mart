@@ -2,17 +2,29 @@ import express from "express";
 import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 
-dotenv.config(); // load .env file
+// Setup for ES Modules (to use __dirname)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// OTP store in-memory (production me DB use karo)
+// Serve static files (frontend build)
+app.use(express.static(path.join(__dirname, "../dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
+});
+
+// OTP store in memory
 const otpStore = new Map();
 
-// Nodemailer transporter
+// Nodemailer setup
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -21,7 +33,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// SMTP check
 transporter.verify((error, success) => {
   if (error) {
     console.error("❌ SMTP connection error:", error);
@@ -30,18 +41,17 @@ transporter.verify((error, success) => {
   }
 });
 
-// OTP generate
 function generateOTP() {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
-// Send OTP API
+// API: Send OTP
 app.post("/request-otp", async (req, res) => {
   const { email } = req.body;
-  if (!email) return res.status(400).send({ error: "Email required" });
+  if (!email) return res.status(400).json({ error: "Email required" });
 
   const otp = generateOTP();
-  const expiresAt = Date.now() + 5 * 60 * 1000;
+  const expiresAt = Date.now() + 5 * 60 * 1000; // 5 min
 
   otpStore.set(email, { otp, expiresAt });
 
@@ -54,33 +64,33 @@ app.post("/request-otp", async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    res.send({ message: "OTP sent to your email" });
+    res.json({ message: "OTP sent to your email" });
   } catch (err) {
     console.error("Email send failed:", err);
-    res.status(500).send({ error: "Failed to send OTP" });
+    res.status(500).json({ error: "Failed to send OTP" });
   }
 });
 
-// Verify OTP API
+// API: Verify OTP
 app.post("/verify-otp", (req, res) => {
   const { email, otp } = req.body;
-  if (!email || !otp) return res.status(400).send({ error: "Email and OTP required" });
+  if (!email || !otp) return res.status(400).json({ error: "Email and OTP required" });
 
   const record = otpStore.get(email);
-  if (!record) return res.status(400).send({ error: "OTP not found" });
+  if (!record) return res.status(400).json({ error: "OTP not found" });
 
   if (record.expiresAt < Date.now()) {
     otpStore.delete(email);
-    return res.status(400).send({ error: "OTP expired" });
+    return res.status(400).json({ error: "OTP expired" });
   }
 
-  if (record.otp !== otp) return res.status(400).send({ error: "Invalid OTP" });
+  if (record.otp !== otp) return res.status(400).json({ error: "Invalid OTP" });
 
   otpStore.delete(email);
-  res.send({ message: "OTP verified" });
+  res.json({ message: "OTP verified" });
 });
 
-// Server start on 0.0.0.0 for mobile access
+// Start server
 app.listen(4000, "0.0.0.0", () => {
   console.log("🚀 Server started on http://0.0.0.0:4000");
 });

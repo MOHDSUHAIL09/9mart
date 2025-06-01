@@ -1,3 +1,6 @@
 "scripts": {
-  "start": "node server.js"
+  "start": "node server/server.js",
+  "build": "vite build",
+  "dev": "vite"
 }
+
