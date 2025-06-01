@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import {  LogoutBtn } from "../index";
+import {  LogoutBtn, Signup } from "../index";
 import "./Header.css"
 import PropTypes from 'prop-types';
 
@@ -140,6 +140,10 @@ const Header = ({ cartCount }) => {
           <li><Link to="/mobiles">Mobiles</Link></li>
           <li><Link to="/books">Books</Link></li>
           <li><Link to="/gift-cards">Gift Cards</Link></li>
+          <li><Link to="/LogoutBtn">Logout</Link></li>
+          <li><Link to="/Signup">SignUp</Link></li>
+          <li><Link to="/Login">Login</Link></li>
+          
 
                 <div className="logout-nav">
            {authStatus && <LogoutBtn />}
