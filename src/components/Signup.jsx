@@ -17,7 +17,7 @@ function Signup() {
   const [loading, setLoading] = useState(false);
 
   // 🚨 Update this when deploying to Railway
-  const BACKEND_URL = 'http://localhost:4000';
+  const BACKEND_URL = 'https://server-production-be5f.up.railway.app';
 
   const requestOtp = async () => {
     setLoading(true);

@@ -19,6 +19,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+app.get('/', (req, res) => {
+  res.send('OTP server is running');
+});
+
 app.post('/request-otp', async (req, res) => {
   const { email } = req.body;
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -61,6 +65,7 @@ app.post('/verify-otp', (req, res) => {
   return res.status(200).json({ message: 'OTP verified' });
 });
 
-app.listen(4000, () => {
-  console.log('Backend running on http://localhost:4000');
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Backend running on http://localhost:${PORT}`);
 });
