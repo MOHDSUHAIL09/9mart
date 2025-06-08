@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import authService from '../appwrite/auth';
 import { useDispatch } from 'react-redux';
 import { login } from '../store/authSlice';
-
+import authService from '../appwrite/auth';
 
 function Signup() {
   const navigate = useNavigate();
@@ -17,25 +16,21 @@ function Signup() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const requestOtp = async () => {
-    setError('');
-    setLoading(true);
-    try {
-      if (!name.trim() || !password.trim() || !email.trim()) {
-        throw new Error('Please fill all fields');
-      }
+  // 🚨 Update this when deploying to Railway
+  const BACKEND_URL = 'http://localhost:4000';
 
-      const res = await fetch('http://localhost:4000/request-otp', {
+  const requestOtp = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch(`${BACKEND_URL}/request-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       });
 
-      if (!res.ok) {
-        const errData = await res.json();
-        throw new Error(errData.error || 'Failed to send OTP');
-      }
-
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
       setStep(2);
     } catch (err) {
       setError(err.message);
@@ -43,32 +38,23 @@ function Signup() {
     setLoading(false);
   };
 
-  const verifyOtpAndCreateAccount = async () => {
-    setError('');
+  const verifyOtpAndSignup = async () => {
     setLoading(true);
+    setError('');
     try {
-      if (!otp.trim()) {
-        throw new Error('Please enter OTP');
-      }
-
-      const verifyRes = await fetch('http://localhost:4000/verify-otp', {
+      const res = await fetch(`${BACKEND_URL}/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),
       });
 
-      if (!verifyRes.ok) {
-        const errData = await verifyRes.json();
-        throw new Error(errData.error || 'OTP verification failed');
-      }
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
 
       await authService.createAccount({ email, password, name });
-
-      const userData = await authService.getCurrentUser();
-      if (userData) {
-        dispatch(login(userData));
-        navigate('/');
-      }
+      const user = await authService.getCurrentUser();
+      dispatch(login(user));
+      navigate('/');
     } catch (err) {
       setError(err.message);
     }
@@ -78,34 +64,32 @@ function Signup() {
   return (
     <div className="signup-wrapper">
       <div className="signup-left">
-        <h2>Sign up</h2>
+        <h2>Signup with OTP</h2>
         {error && <p className="error">{error}</p>}
 
         {step === 1 && (
           <div className="signup-form">
             <input
-              type="text"
-              placeholder="Username"
+              placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
             />
             <input
-              type="email"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
             <input
-              type="password"
               placeholder="Password"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
             <button onClick={requestOtp} disabled={loading}>
-              {loading ? 'Sending OTP...' : 'SIGN UP'}
+              {loading ? 'Sending...' : 'Send OTP'}
             </button>
 
             <p className="or-text">Or Sign up with social platforms</p>
@@ -119,14 +103,13 @@ function Signup() {
         {step === 2 && (
           <div className="signup-form">
             <input
-              type="text"
               placeholder="Enter OTP"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
               required
             />
-            <button onClick={verifyOtpAndCreateAccount} disabled={loading}>
-              {loading ? 'Verifying...' : 'Verify OTP & Sign Up'}
+            <button onClick={verifyOtpAndSignup} disabled={loading}>
+              {loading ? 'Verifying...' : 'Verify & Signup'}
             </button>
           </div>
         )}
@@ -136,11 +119,6 @@ function Signup() {
         <h3>One of us?</h3>
         <h1>WELCOME</h1>
         <button onClick={() => navigate('/login')}>LOGIN</button>
-        <img
-          src="login.jpg"
-          alt="Illustration"
-          className="illustration"
-        />
       </div>
     </div>
   );

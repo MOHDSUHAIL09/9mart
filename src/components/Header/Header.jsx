@@ -141,6 +141,8 @@ const Header = ({ cartCount }) => {
           <li><Link to="/books">Books</Link></li>
           <li><Link to="/gift-cards">Gift Cards</Link></li>
 
+          
+
                 <div className="logout-nav">
            {authStatus && <LogoutBtn />}
             </div>

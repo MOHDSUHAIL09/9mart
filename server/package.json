@@ -1,0 +1,19 @@
+{
+  "name": "otp-backend",
+  "version": "1.0.0",
+  "description": "OTP based signup backend using Node.js and Appwrite",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.4",
+    "uuid": "^9.0.1",
+    "appwrite": "^18.1.1"
+
+  }
+}
