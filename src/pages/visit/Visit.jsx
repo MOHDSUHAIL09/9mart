@@ -4,6 +4,7 @@ import "./Visit.css";
 
 
 export default function Home() {
+
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

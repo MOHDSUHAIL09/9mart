@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import {  LogoutBtn, Signup } from "../index";
+import {  LogoutBtn, } from "../index";
 import "./Header.css"
 import PropTypes from 'prop-types';
 
@@ -15,6 +15,7 @@ const Header = ({ cartCount }) => {
     navigate(event.target.value);
     setMenuOpen(false);
   };
+
 
   return (
     <>

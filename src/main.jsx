@@ -45,10 +45,15 @@ const router = createBrowserRouter([
             path: "categoriesPage/:name",
             element: <CategoryPage />
         },
-        {
-           path: "/cart",
-           element: <CartPage />
-        } 
+       {
+   path: "/cart",
+   element: (
+     <AuthLayout authentication={true}>
+       <CartPage />
+     </AuthLayout>
+   )
+}
+
     ],
 },
 ])

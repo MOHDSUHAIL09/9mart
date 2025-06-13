@@ -5,11 +5,13 @@ import auth from '../../appwrite/auth';
 import './CartPage.css';
 
 const CartPage = () => {
+
   const { cart, setCart } = useOutletContext();
   const [quantities, setQuantities] = useState({});
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    
     // Fetch current user
     auth.getCurrentUser().then(setUser);
 

@@ -2,6 +2,7 @@ import { useLocation, useOutletContext } from "react-router-dom";
 import "./VisitPage.css"
 
 export default function CategoryPage() {
+  
    const { handleAddToCart } = useOutletContext(); // function App.jsx से मिल रहा
   const location = useLocation();
   const categoryName = location.pathname.split("/").pop(); // URL से category name निकाल रहे हैं
