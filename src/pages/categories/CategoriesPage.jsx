@@ -250,8 +250,8 @@ export default function CategoriesPage() {
                 <h3 className="acname">{item.name}</h3>
 
                  <p className="price">
-                  <span className="new-price7">{item.price}</span>{" "}
-                  <span className="old-price7">{item.oldPrice}</span>
+                  <span className="new-price7">₹{item.price}</span>{" "}
+                  <span className="old-price7">₹{item.oldPrice}</span>
                 </p>
                 <div className="free-deiivery"> Free Delivery</div>
                 <div className="rating-content">

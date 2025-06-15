@@ -37,9 +37,9 @@ const PopularProducts = () => {
               <h3 className="title">{product.title}</h3>
 
               <div className="price">
-                {product.price}
+                ₹{product.price}
                 {product.oldPrice && (
-                  <span className="old-price">{product.oldPrice}</span>
+                  <span className="old-price">₹{product.oldPrice}</span>
                 )}
 
               </div>
