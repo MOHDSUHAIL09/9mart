@@ -17,7 +17,7 @@ function Signup() {
   const [loading, setLoading] = useState(false);
 
   // 🚨 Update this when deploying to Railway
-  const BACKEND_URL = "https://server-s86f.onrender.com";
+  const BACKEND_URL = 'https://server-s86f.onrender.com';
   
 
   const requestOtp = async () => {
